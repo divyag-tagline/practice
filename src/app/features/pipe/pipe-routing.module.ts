@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PipesComponent } from './pipes/pipes.component';
 
 const routes: Routes = [
   {
     path:'pipe',
-    loadChildren: () =>
-      import('./features/pipe/pipe.module').then(
-        (pipe) => pipe.PipeModule
-      ),
+    component:PipesComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class PipeRoutingModule { }
