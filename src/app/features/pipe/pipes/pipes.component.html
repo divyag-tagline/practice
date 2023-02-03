@@ -45,7 +45,7 @@
           <h2>Custom Search</h2>
           <input [(ngModel)]="searchTerm" placeholder="Filter" />
           <ul>
-            <li *ngFor="let person of people | filter : searchTerm : 'name'">
+            <li *ngFor="let person of people  | filter : searchTerm : 'name' " >
               {{ person.name }} | {{ person.age }} | {{ person.country }}
             </li>
           </ul>
