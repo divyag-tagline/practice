@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'pipe',
+    path:'',
     loadChildren: () =>
       import('./features/pipe/pipe.module').then(
         (pipe) => pipe.PipeModule
-      ),
+      )
+  },{
+    path:'**',
+    redirectTo:''
   }
 ];
 
