@@ -6,11 +6,11 @@
       </div>
       <div class="card-body">
         <div>
-          <h1>Date</h1>
+          <h2>Date</h2>
           <li>{{ today | date : "dd-MM-yyyy" }}</li>
         </div>
         <div>
-          <h1>Name</h1>
+          <h2>Name</h2>
           <li>{{ "divya gabani" | titlecase }}</li>
         </div>
         <div>
@@ -37,7 +37,12 @@
           <li>{{ y | percent : "4.3-5" : "fr" }}</li>
         </div>
         <div>
-          <h2>Custom</h2>
+          <h2>Async</h2>
+          <li><div><code>observable|async</code>:
+            Time: {{ time | async }}</div></li>
+        </div>
+        <div>
+          <h2>Custom Search</h2>
           <input [(ngModel)]="searchTerm" placeholder="Filter" />
           <ul>
             <li *ngFor="let person of people | filter : searchTerm : 'name'">
@@ -47,8 +52,9 @@
         </div>
         <div>
           <h2>Paragraph</h2>
-          <input [(ngModel)]="filterParagraph" placeholder="Enter Text" />
-          <p>{{ filterParagraph | filterPipe }}</p>
+          <input class="m-2" [(ngModel)]="filterParagraph" placeholder="Enter Text" />
+          <input [(ngModel)]="length" placeholder="Enter Length" />
+          <p>{{ filterParagraph | filterPipe : length }}</p>
         </div>
       </div>
     </div>

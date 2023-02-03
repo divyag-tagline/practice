@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import '@angular/common/locales/global/fr';
+import { Observable } from 'rxjs';
 export interface Person {
   name: string;
   age: number;
@@ -28,7 +29,10 @@ export class PipesComponent implements OnInit {
     'Arxiour',
   ];
   filterParagraph !: string;
-
+  length:number = 10;
+  time = new Observable<string>(observer => {
+    setInterval(() => observer.next(new Date().toString()), 1000);
+  });
   constructor() {
     this.names.forEach((e, i) =>
       this.people.push({
