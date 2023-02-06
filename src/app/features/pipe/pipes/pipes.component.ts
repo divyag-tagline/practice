@@ -33,7 +33,7 @@ export class PipesComponent implements OnInit {
     'Arxiour',
   ];
   serchWords!: string;
-  name : any[] = [];
+  name: any[] = [];
   listOfLine = [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     'Suspendisse scelerisque lectus at velit varius, sed ullamcorper erat lobortis.',
@@ -62,7 +62,7 @@ export class PipesComponent implements OnInit {
         country: 'Bulgaria',
       })
     );
-    this.listOfLine.forEach((e)=> this.name.push({name:e,text:e}));
+    this.listOfLine.forEach((e) => this.name.push({ name: e, text: e }));
   }
 
   ngOnInit(): void {

@@ -56,7 +56,9 @@
             <h2>Custom List</h2>
             <input [(ngModel)]="serchWords" placeholder="FilterWord" />
             <ul>
-              <ng-container *ngFor="let item of name | serachWord : serchWords : 'name'">
+              <ng-container
+                *ngFor="let item of name | serachWord : serchWords : 'name'"
+              >
                 <li [innerHTML]="item.name"></li>
               </ng-container>
             </ul>
