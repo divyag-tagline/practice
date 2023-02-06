@@ -15,21 +15,10 @@ export class SerachWordPipe implements PipeTransform {
       })
       .map((line: any) => {
         const regex = new RegExp(serchWords, 'gi');
-
+        const match = line.name.match(regex);
         return {
           ...line,
-          [`${type}`]: line.name.replace(regex, function (serchWords: any) {
-            if (serchWords.toUpperCase() === serchWords) {
-              return `<b>${serchWords}</b>`.toUpperCase();
-            } else if (serchWords[0].toUpperCase() === serchWords[0]) {
-              return (
-                `<b>${serchWords}</b>`[0].toUpperCase() +
-                `<b>${serchWords}</b>`.slice(1)
-              );
-            } else {
-              return `<b>${serchWords}</b>`;
-            }
-          }),
+          [`${type}`]: line.name.replace(regex, `<b>${match[0]}</b>`),
         };
       });
   }
