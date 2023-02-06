@@ -15,6 +15,7 @@ export class FilterPipe implements PipeTransform {
     // when there is partial or full match of the search term
     return items.filter(item => {
       const currentItem = item[searchBy];
+      console.log('se :>> ', currentItem);
       return currentItem.toString().toLowerCase().includes(searchTerm.trim().toLowerCase());
     });
   }

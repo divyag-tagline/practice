@@ -27,7 +27,7 @@
         <div>
           <h2>DecimalPipe</h2>
           <li>{{ pi | number }}</li>
-          <li>{{ pi | number : "4.1-5" }}</li>
+          <li>{{ 555.689222 | number : "2.2-3" }}</li>
           <li>{{ pi | number : "4.1-5" : "fr" }}</li>
         </div>
         <div>
@@ -38,23 +38,49 @@
         </div>
         <div>
           <h2>Async</h2>
-          <li><div><code>observable|async</code>:
-            Time: {{ time | async }}</div></li>
+          <li>
+            <div><code>observable|async</code>: Time: {{ time | async }}</div>
+          </li>
         </div>
         <div>
           <h2>Custom Search</h2>
           <input [(ngModel)]="searchTerm" placeholder="Filter" />
           <ul>
-            <li *ngFor="let person of people  | filter : searchTerm : 'name' " >
+            <li *ngFor="let person of people | filter : searchTerm : 'name'">
               {{ person.name }} | {{ person.age }} | {{ person.country }}
             </li>
           </ul>
         </div>
         <div>
-          <h2>Paragraph</h2>
-          <input class="m-2" [(ngModel)]="filterParagraph" placeholder="Enter Text" />
-          <input [(ngModel)]="length" placeholder="Enter Length" />
-          <p>{{ filterParagraph | filterPipe : length }}</p>
+          <div>
+            <h2>Custom List</h2>
+            <input [(ngModel)]="serchWords" placeholder="FilterWord" />
+            <ul>
+              <ng-container
+                *ngFor="
+                  let item of name
+                    | serachWord : serchWords : 'name'
+                "
+              >
+                <li [innerHTML]="item.name"></li>
+              </ng-container>
+            </ul>
+          </div>
+          <div>
+            <h2>Paragraph</h2>
+            <input
+              class="m-2"
+              [(ngModel)]="filterParagraph"
+              placeholder="Enter Text"
+            />
+            <input
+              [(ngModel)]="length"
+              (keypress)="blockCharacter($event)"
+              placeholder="Enter Length"
+            />
+            <input type="file" />
+            <p>{{ filterParagraph | filterPipe : length }}</p>
+          </div>
         </div>
       </div>
     </div>

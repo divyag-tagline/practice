@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipePipe implements PipeTransform {
   transform(filterParagraph: string,length:number = 10): any {
-    return filterParagraph.length >= length
+    return filterParagraph?.length >= length
     ?  filterParagraph.slice(0,length) + '...'
     : filterParagraph;
   }
