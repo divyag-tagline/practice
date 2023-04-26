@@ -1,0 +1,140 @@
+<div
+  class="container justify-content-center d-flex mt-3"
+  appDnd
+  (fileDropped)="onFileDropped($event)"
+>
+  <input
+    type="file"
+    #fileDropRef
+    id="fileDropRef"
+    multiple
+    (change)="fileBrowseHandler($any($event.target).files)"
+  />
+  <svg
+    width="31"
+    height="30"
+    viewBox="0 0 31 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11.75 12.5C13.1307 12.5 14.25 11.3807 14.25 10C14.25 8.61929 13.1307 7.5 11.75 7.5C10.3693 7.5 9.25 8.61929 9.25 10C9.25 11.3807 10.3693 12.5 11.75 12.5Z"
+      stroke="#49A1D9"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M16.75 2.5H11.75C5.5 2.5 3 5 3 11.25V18.75C3 25 5.5 27.5 11.75 27.5H19.25C25.5 27.5 28 25 28 18.75V12.5"
+      stroke="#49A1D9"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M20.1875 6.25H27.0625"
+      stroke="#49A1D9"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+    <path
+      d="M23.625 9.6875V2.8125"
+      stroke="#49A1D9"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+    <path
+      d="M3.83789 23.6877L10.0004 19.5502C10.9879 18.8877 12.4129 18.9627 13.3004 19.7252L13.7129 20.0877C14.6879 20.9252 16.2629 20.9252 17.2379 20.0877L22.4379 15.6252C23.4129 14.7877 24.9879 14.7877 25.9629 15.6252L28.0004 17.3752"
+      stroke="#49A1D9"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <h3 class="ms-1">Upload Cover Images</h3>
+</div>
+<div class="files-list m-2">
+    <div class="row">
+        <div class="col-2 m-3 single-file" *ngFor="let file of files; let i = index">
+          <div class="file-icon" style="width: 50px">
+            <svg
+              width="65"
+              height="65"
+              viewBox="0 0 83 83"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="83" height="83" rx="8.85333" fill="#EBF7FF" />
+              <path
+                d="M28.9958 50.2269C28.9958 49.2161 28.2944 48.6133 27.0569 48.6133C26.5515 48.6133 26.2093 48.6631 26.0303 48.7109V51.9541C26.2422 52.0018 26.5028 52.0177 26.862 52.0177C28.1811 52.0177 28.9958 51.3512 28.9958 50.2269ZM36.6569 48.6472C36.1027 48.6472 35.7445 48.6951 35.5327 48.7447V55.9274C35.7447 55.9772 36.0869 55.9772 36.3963 55.9772C38.6446 55.9931 40.1109 54.7555 40.1109 52.1332C40.1268 49.8529 38.7907 48.6472 36.6569 48.6472Z"
+                fill="#49A1D9"
+              />
+              <path
+                d="M50.8906 11.0669H26.444C22.8726 11.0669 19.9658 13.9757 19.9658 17.5451V41.5002H19.3331C17.8917 41.5002 16.7227 42.668 16.7227 44.1107V59.9421C16.7227 61.3847 17.8915 62.5524 19.3331 62.5524H19.9658V65.4554C19.9658 69.0287 22.8726 71.9336 26.444 71.9336H59.8003C63.3694 71.9336 66.2766 69.0286 66.2766 65.4554V26.399L50.8906 11.0669ZM23.571 46.9677C24.336 46.8385 25.4113 46.741 26.9264 46.741C28.4574 46.741 29.5487 47.0333 30.2819 47.6203C30.9823 48.1735 31.455 49.0866 31.455 50.1612C31.455 51.2355 31.0968 52.1489 30.4451 52.7676C29.5975 53.5655 28.3441 53.9236 26.8778 53.9236C26.5514 53.9236 26.2589 53.9075 26.0302 53.8758V57.8014H23.571V46.9677ZM59.8003 67.9662H26.444C25.0611 67.9662 23.935 66.8402 23.935 65.4554V62.5524H55.03C56.4716 62.5524 57.6405 61.3847 57.6405 59.9421V44.1107C57.6405 42.668 56.4716 41.5002 55.03 41.5002H23.935V17.5451C23.935 16.1642 25.0613 15.0381 26.444 15.0381L49.4063 15.0141V23.5018C49.4063 25.981 51.4179 27.9944 53.8989 27.9944L62.2136 27.9706L62.3071 65.4553C62.3071 66.8402 61.183 67.9662 59.8003 67.9662ZM33.0407 57.7517V46.9677C33.9528 46.8226 35.1416 46.741 36.3962 46.741C38.4813 46.741 39.8333 47.1151 40.8928 47.9128C42.0329 48.7604 42.749 50.1115 42.749 52.0512C42.749 54.1522 41.984 55.6028 40.9244 56.498C39.7684 57.4589 38.0087 57.9147 35.8589 57.9147C34.5715 57.9147 33.6594 57.8331 33.0407 57.7517ZM50.8191 51.3669V53.3863H46.8765V57.8014H44.3845V46.8226H51.0956V48.8579H46.8765V51.3669H50.8191Z"
+                fill="#49A1D9"
+              />
+            </svg>
+          </div>
+          <ng-container *ngIf="file.type == 'image'">
+            image
+          </ng-container>
+          <div class="info ml-3">
+            <div class="inline-content">
+              <h4 class="name">
+                {{ file?.name }}
+              </h4>
+              <div class="delete" (click)="deleteFile(i)">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998"
+                    stroke="#FF4E3E"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97"
+                    stroke="#FF4E3E"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M18.8504 9.14014L18.2004 19.2101C18.0904 20.7801 18.0004 22.0001 15.2104 22.0001H8.79039C6.00039 22.0001 5.91039 20.7801 5.80039 19.2101L5.15039 9.14014"
+                    stroke="#FF4E3E"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.3301 16.5H13.6601"
+                    stroke="#FF4E3E"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9.5 12.5H14.5"
+                    stroke="#FF4E3E"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p class="size">
+              {{ formatBytes(file?.size) }}
+              <li>{{ date | date : "d MMM y" }}</li>
+            </p>
+            <app-progress [progress]="file?.progress"></app-progress>
+          </div>
+        </div>
+    </div>
+</div>
