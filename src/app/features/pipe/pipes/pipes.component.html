@@ -21,6 +21,8 @@
           <li>{{ b | currency : "CAD" : "symbol" : "4.2-2" }}</li>
           <li>{{ b | currency : "CAD" : "symbol-narrow" : "4.2-2" }}</li>
           <li>{{ b | currency : "CAD" : "symbol-narrow" : "4.2-2" }}</li>
+          <li>{{ b | currency : "INR" : "symbol-narrow" }}</li>
+          <li>{{ b | currency : "INR" : "symbol" : "1.1-3"}}</li>
           <li>{{ b | currency : "CAD" : "symbol" : "4.2-2" : "fr" }}</li>
           <li>{{ b | currency : "CLP" }}</li>
         </div>
@@ -45,11 +47,15 @@
         <div>
           <h2>Custom Search</h2>
           <input [(ngModel)]="searchTerm" placeholder="Filter" />
-          <ul>
-            <li *ngFor="let person of people | filter : searchTerm : 'name'">
-              {{ person.name }} | {{ person.age }} | {{ person.country }}
-            </li>
-          </ul>
+          <ng-container
+            *ngFor="let person of people | filter : searchTerm : 'name'"
+          >
+            <tr>
+              <td [innerHTML]="person.name"></td>&nbsp;
+              <td [innerHTML]="person.age"></td>&nbsp;
+              <td [innerHTML]="person.country"></td>
+            </tr>
+          </ng-container>
         </div>
         <div>
           <div>
@@ -57,7 +63,7 @@
             <input [(ngModel)]="serchWords" placeholder="FilterWord" />
             <ul>
               <ng-container
-                *ngFor="let item of name | serachWord : serchWords : 'name'"
+                *ngFor="let item of name | search : serchWords : 'name'"
               >
                 <li [innerHTML]="item.name"></li>
               </ng-container>
@@ -83,3 +89,4 @@
     </div>
   </div>
 </div>
+<button class="btn btn-primary m-4" routerLink="student">Click</button>

@@ -18,7 +18,7 @@ export interface Name {
 export class PipesComponent implements OnInit {
   today: number = Date.now();
   a: number = 0.259;
-  b: number = 1.3495;
+  b: number = 100.3495;
   pi: number = 3.14159265359;
   x: number = 0.259;
   y: number = 1.3495;
